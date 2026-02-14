@@ -1,4 +1,7 @@
 
+using Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace CamelRegistry
 {
     public class Program
@@ -7,6 +10,8 @@ namespace CamelRegistry
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            var connectionString = builder.Configuration["db:conn"] ?? throw new InvalidOperationException("Connection string 'db:conn' not found.");
+            builder.Services.AddDbContext<CamelRegistryDbContext>(options => options.UseSqlite(connectionString));
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -14,6 +19,12 @@ namespace CamelRegistry
             builder.Services.AddOpenApi();
 
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<CamelRegistryDbContext>();
+                dbContext.Database.Migrate();
+            }
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
