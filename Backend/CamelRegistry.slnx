@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="CamelRegistry/CamelRegistry.csproj" />
+  <Project Path="Data/Data.csproj" />
+  <Project Path="Entity/Entity.csproj" />
+  <Project Path="Logic/Logic.csproj" />
+</Solution>
