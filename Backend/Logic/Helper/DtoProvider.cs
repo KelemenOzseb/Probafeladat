@@ -15,8 +15,11 @@ namespace Logic.Helper
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<UpdateCamelDto, Camel>();
-                cfg.CreateMap<CreateCamelDto, Camel>();
+                cfg.CreateMap<UpdateCamelDto, Camel>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+                cfg.CreateMap<CreateCamelDto, Camel>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
             });
             Mapper = new Mapper(config);
         }
