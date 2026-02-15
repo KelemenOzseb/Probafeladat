@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Camel } from '../models/camel';
 
 @Component({
   selector: 'app-camel-factory',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './camel-factory.sass',
 })
 export class CamelFactory {
-
+  @Input() camelInput: Camel = new Camel()
 }
