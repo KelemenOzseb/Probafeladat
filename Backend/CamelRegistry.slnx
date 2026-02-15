@@ -3,4 +3,5 @@
   <Project Path="Data/Data.csproj" />
   <Project Path="Entity/Entity.csproj" />
   <Project Path="Logic/Logic.csproj" />
+  <Project Path="Test/Test.csproj" Id="24d037ab-8d26-463e-8ac2-a3cc4323e14b" />
 </Solution>

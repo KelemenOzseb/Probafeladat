@@ -13,13 +13,14 @@ namespace CamelRegistry
     {
         public static void Main(string[] args)
         {
+            // A http://localhost:5000/swagger Url-en fut a swagger
             var builder = WebApplication.CreateBuilder(args);
 
             //Database connection
             var connectionString = builder.Configuration["db:conn"] ?? throw new InvalidOperationException("Connection string 'db:conn' not found.");
             builder.Services.AddDbContext<CamelRegistryDbContext>(options => options.UseSqlite(connectionString));
             // Add services to the container.
-            builder.Services.AddTransient(typeof(Repository<>));
+            builder.Services.AddTransient<IRepository<Camel>, Repository<Camel>>();
             builder.Services.AddTransient<DtoProvider>();
             builder.Services.AddTransient<CamelLogic>();
             //builder.Services.AddControllers();

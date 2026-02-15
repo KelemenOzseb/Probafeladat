@@ -11,10 +11,10 @@ namespace Logic.Logic
 {
     public class CamelLogic
     {
-        Repository<Camel> _repository;
+        IRepository<Camel> _repository;
         DtoProvider _dtoProvider;
 
-        public CamelLogic(Repository<Camel> repository, DtoProvider dtoProvider)
+        public CamelLogic(IRepository<Camel> repository, DtoProvider dtoProvider)
         {
             _repository = repository;
             _dtoProvider = dtoProvider;
