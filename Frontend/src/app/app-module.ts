@@ -8,6 +8,7 @@ import { CamelFactory } from './camel-factory/camel-factory';
 import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { errorInterceptorInterceptor } from './error-interceptor-interceptor';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { errorInterceptorInterceptor } from './error-interceptor-interceptor';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideHttpClient(withInterceptors([errorInterceptorInterceptor]))
+    provideHttpClient(withInterceptors([errorInterceptorInterceptor])),
+    provideHttpClientTesting()
   ],
   bootstrap: [App]
 })
