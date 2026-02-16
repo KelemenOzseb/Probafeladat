@@ -10,6 +10,6 @@ import { Camel } from '../models/camel';
   styleUrl: './camel-list.sass',
 })
 export class CamelList {
-  constructor(public camelService:CamelService, private router:Router) {}
+  constructor(public camelService:CamelService) {}
 
 }

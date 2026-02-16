@@ -1,1 +1,35 @@
-<p>camel-factory works!</p>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <form [formGroup]="camelForm" (ngSubmit)="save()" class="card shadow-sm">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name:</label>
+                        <input id="name" type="text" formControlName="name" class="form-control"
+                        placeholder="Pl. Frici">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="color" class="form-label">Color:</label>
+                        <input id="color" type="text" formControlName="color" class="form-control"
+                        placeholder="Pl. Brown">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="humpsCount" class="form-label">HumpsCount:</label>
+                        <input id="humpsCount" type="number" formControlName="humpCount" class="form-control"
+                        placeholder="1 vagy 2">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="lastFed" class="form-label">LastFed:</label>
+                        <input id="lastFed" type="date" formControlName="lastFed" class="form-control">
+                    </div>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" [disabled]="camelForm.invalid">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
