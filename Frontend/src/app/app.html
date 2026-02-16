@@ -1,1 +1,19 @@
-<router-outlet />
+<router-outlet></router-outlet>
+@if (errorService.error$ | async; as msg) {
+  <div class="modal d-block">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-danger">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">Hiba történt!</h5>
+          <button type="button" class="btn-close btn-close-white" (click)="errorService.clearError()"></button>
+        </div>
+        <div class="modal-body">
+          <p>{{ msg }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="errorService.clearError()">Bezárás</button>
+        </div>
+      </div>
+    </div>
+  </div>
+}

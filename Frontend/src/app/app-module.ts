@@ -5,8 +5,9 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { CamelList } from './camel-list/camel-list';
 import { CamelFactory } from './camel-factory/camel-factory';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { errorInterceptorInterceptor } from './error-interceptor-interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideHttpClient()
+    provideHttpClient(withInterceptors([errorInterceptorInterceptor]))
   ],
   bootstrap: [App]
 })
